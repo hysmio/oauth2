@@ -1,0 +1,31 @@
+{
+  "name": "oauth2-automated",
+  "description": "OAuth2 Library for Interacting with internal libraries",
+  "author": "Hayden Sim <haydenwillsim@gmail.com>",
+  "repository": "https://github.com/hysmio/oauth2",
+  "version": "1.0.4",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "lint": "web-scripts lint",
+    "test": "web-scripts test",
+    "build": "web-scripts build",
+    "commit": "web-scripts commit",
+    "release": "web-scripts release"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "web-scripts commitmsg",
+      "pre-commit": "web-scripts precommit"
+    }
+  },
+  "devDependencies": {
+    "@spotify/web-scripts": "^1.0.1",
+    "husky": "^2.5.0"
+  },
+  "dependencies": {
+    "@types/node-fetch": "^2.3.7",
+    "node-fetch": "^2.6.0"
+  }
+}
