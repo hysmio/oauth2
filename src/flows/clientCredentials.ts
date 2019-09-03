@@ -46,7 +46,7 @@ export default class ClientCredentials {
     const body = new URLSearchParams();
     body.append("grant_type", "client_credentials");
 
-    const basicAuth = btoa(`${this.options.clientId}:${this.options.clientSecret}`);
+    const basicAuth = Buffer.from(`${this.options.clientId}:${this.options.clientSecret}`).toString('base64');
 
     if (Array.isArray(this.options.scope)) {
       let scope: string = "";
