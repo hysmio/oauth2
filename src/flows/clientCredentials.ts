@@ -45,8 +45,8 @@ export default class ClientCredentials {
   public async getToken(): Promise<any> {
     const body = new URLSearchParams();
     body.append("grant_type", "client_credentials");
-    body.append("client_id", this.options.clientId);
-    body.append("client_secret", this.options.clientSecret);
+
+    const basicAuth = btoa(`${this.options.clientId}:${this.options.clientSecret}`);
 
     if (Array.isArray(this.options.scope)) {
       let scope: string = "";
@@ -64,7 +64,8 @@ export default class ClientCredentials {
         {
           body: body.toString(),
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Authorization": `Basic ${basicAuth}`
           },
           method: "POST"
         }
